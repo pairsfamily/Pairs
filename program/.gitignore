@@ -1,0 +1,4 @@
+target/
+.anchor/
+!target/deploy/
+keys/

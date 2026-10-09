@@ -1,0 +1,16 @@
+[toolchain]
+anchor_version = "0.31.1"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+pairs_burner = "5TbC4U6rqpHqgdS4ngkmzkRPwP53bdeMoJrwhuAnVdS8"
+
+[programs.mainnet]
+pairs_burner = "5TbC4U6rqpHqgdS4ngkmzkRPwP53bdeMoJrwhuAnVdS8"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"

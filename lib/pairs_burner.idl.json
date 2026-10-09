@@ -1,0 +1,110 @@
+{
+  "address": "5TbC4U6rqpHqgdS4ngkmzkRPwP53bdeMoJrwhuAnVdS8",
+  "metadata": {
+    "name": "pairs_burner",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Pairs burner: each pairs.family coin's pump.fun creator is a PDA of this program; its pair-token fees can only ever be burned."
+  },
+  "instructions": [
+    {
+      "name": "burn",
+      "docs": [
+        "Burns every unit of `quote_mint` held by the coin's burner PDA in `burner_quote`. Permissionless. A zero",
+        "balance is a no-op (succeeds, burns nothing), so a crank never fails on a quiet coin."
+      ],
+      "discriminator": [
+        116,
+        110,
+        29,
+        56,
+        107,
+        219,
+        42,
+        93
+      ],
+      "accounts": [
+        {
+          "name": "coin_mint"
+        },
+        {
+          "name": "burner",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  98,
+                  117,
+                  114,
+                  110,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "coin_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "quote_mint",
+          "docs": [
+            "The pair token (its supply drops by the burn)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "burner_quote",
+          "docs": [
+            "Any token account of the burner PDA for the pair token (its ATA in practice)."
+          ],
+          "writable": true
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    }
+  ],
+  "events": [
+    {
+      "name": "Burned",
+      "discriminator": [
+        207,
+        37,
+        251,
+        154,
+        239,
+        229,
+        14,
+        67
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "Burned",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "coin_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "quote_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "amount",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ]
+}
