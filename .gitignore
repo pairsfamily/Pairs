@@ -1,0 +1,16 @@
+node_modules/
+data/
+.env
+.env.*
+web/dist/
+*.log
+tools/grind/target/
+keys/
+e2e/ledger/
+e2e/validator.log
+e2e/fixtures/
+e2e/last-chain-run.json
+e2e/validator.log
+e2e/last-api-run.json
+program/target/
+program/.anchor/

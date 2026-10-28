@@ -1,0 +1,21 @@
+[package]
+name = "pairs_burner"
+version = "0.1.0"
+edition = "2021"
+description = "Pairs burner: each pairs.family coin's pump.fun creator is a PDA of this program; its pair-token fees can only ever be burned."
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "pairs_burner"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = "0.31.1"
+anchor-spl = "0.31.1"
